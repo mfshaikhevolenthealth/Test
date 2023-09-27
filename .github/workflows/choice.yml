@@ -11,7 +11,10 @@ on:
           - 'DEV'
           - 'QA'
           - 'prod'
-
+      zip:
+        type: string
+        required: true
+        default: zipfilepath
 jobs:    
   prod:
     if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'PROD' }}
@@ -40,4 +43,4 @@ jobs:
       - name: Print value
         run: echo ${{ env.environment }}
       - name: Print value
-        run: echo ${{ env.environment }}  
+        run: echo ${{ env.zip }}  
