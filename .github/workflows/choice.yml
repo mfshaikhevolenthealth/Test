@@ -11,7 +11,7 @@ on:
           - 'DEV'
           - 'QA'
           - 'prod'
-      zip:
+      Buildid:
         type: string
         required: true
         default: zipfilepath
