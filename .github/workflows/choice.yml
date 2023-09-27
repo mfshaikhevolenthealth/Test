@@ -39,3 +39,5 @@ jobs:
     steps:
       - name: Print value
         run: echo ${{ env.environment }}
+      - name: Print value
+        run: echo ${{ env.environment }}  
