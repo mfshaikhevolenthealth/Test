@@ -47,3 +47,4 @@ jobs:
            mkdir ~/manik
            echo ${{ github.event.inputs.Buildid }}  > ~/manik/hw.txt
            ls -la ~/manik/
+           cat ~/manik/hw.txt
