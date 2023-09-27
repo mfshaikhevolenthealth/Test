@@ -44,7 +44,13 @@ jobs:
         run: echo ${{ github.event.inputs.Buildid }}  > hw.txt
       - name: Print value 
         run: |
+           ls -la
            mkdir ~/manik
            echo ${{ github.event.inputs.Buildid }}  > ~/manik/hw.txt
            ls -la ~/manik/
            cat ~/manik/hw.txt
+      - name: Publish Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: ~/manik           
