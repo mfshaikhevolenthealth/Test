@@ -1,0 +1,41 @@
+name: choice Print environment variable
+
+on:
+   workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        required: true
+        default: DEV
+        options:
+          - 'DEV'
+          - 'QA'
+          - 'prod'
+
+jobs:    
+  prod:
+    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'PROD' }}
+    env:
+      environment: PROD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print value
+        run: echo ${{ env.environment }}
+  QA:
+    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'QA' }}
+    env:
+      environment: QA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print value
+        run: echo ${{ env.environment }}
+        
+        
+  dev:
+    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'DEV' }}
+    env:
+      environment: DEV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print value
+        run: echo ${{ env.environment }}
