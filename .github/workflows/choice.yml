@@ -17,7 +17,7 @@ on:
         default: zipfilepath
 jobs:    
   prod:
-    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'PROD' }}
+    if: ${{ github.ref_name == 'develop' || github.event.inputs.environment == 'PROD' }}
     env:
       environment: PROD
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
       - name: Print value
         run: echo ${{ env.environment }}
   QA:
-    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'QA' }}
+    if: ${{ github.ref_name == 'develop' || github.event.inputs.environment == 'QA' }}
     env:
       environment: QA
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
         
         
   dev:
-    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'DEV' }}
+    if: ${{ github.ref_name == 'develop' || github.event.inputs.environment == 'DEV' }}
     env:
       environment: DEV
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
       - name: Print value
         run: echo ${{ env.environment }}
       - name: Print value
-        run: echo ${{ env.zip }}  
+        run: echo ${{ env.Buildid }}  
