@@ -10,16 +10,25 @@ on:
 
 jobs:    
   prod:
-    if: ${{ github.ref_name == 'release--test' || github.event.inputs.environment == 'PROD' }}
+    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'PROD' }}
     env:
       environment: PROD
     runs-on: ubuntu-latest
     steps:
       - name: Print value
         run: echo ${{ env.environment }}
+  QA:
+    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'QA' }}
+    env:
+      environment: QA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print value
+        run: echo ${{ env.environment }}
+        
         
   dev:
-    if: ${{ github.ref_name == 'development' || github.event.inputs.environment == 'DEV' }}
+    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'DEV' }}
     env:
       environment: DEV
     runs-on: ubuntu-latest
