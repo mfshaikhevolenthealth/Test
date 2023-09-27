@@ -53,8 +53,8 @@ jobs:
            cat ~/dev/Buildid.txt
       - uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          source_dir: '~/dev'
-          container_name: 'devcarelog'
+          source_dir: ~/dev
+          container_name: devcarelog
           connection_string: 'sp=racwd&st=2023-09-27T13:20:10Z&se=2024-12-31T21:20:10Z&spr=https&sv=2022-11-02&sr=c&sig=6LqHiY5uIYLh6wwaNfVJv6qiTrM0enFKjnbp0%2BVT9Gk%3D'
           overwrite: 'true' 
       - name: Publish Artifacts
