@@ -36,11 +36,9 @@ jobs:
         
   dev:
     if: ${{ github.ref_name == 'develop' || github.event.inputs.environment == 'DEV' }}
-    env:
-      environment: DEV
     runs-on: ubuntu-latest
     steps:
       - name: Print value
-        run: echo ${{ env.environment }}
+        run: echo ${{ github.event.inputs.environment }}
       - name: Print value
-        run: echo ${{ env.Buildid }}  
+        run: echo ${{ github.event.inputs.Buildid }}  
