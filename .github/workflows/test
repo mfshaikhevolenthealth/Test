@@ -16,7 +16,8 @@ on:
         default: "BBInforma_${{ github.run_id }}.zip"
       test:
         description: "Test"
-        required: false   
+        required: true
+        default: true
   
 env:
   APP_NAME_ENV: BBInforma
