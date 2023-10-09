@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   build-app:
-    if: "${{ github.event.inputs.test != '' }}"
+    if: "${{ github.event.inputs.test = '' }}"
     uses: ./.github/workflows/template-build-deploy.yml
     with:
       APP_NAME: "${{env.APP_NAME_ENV}}"
