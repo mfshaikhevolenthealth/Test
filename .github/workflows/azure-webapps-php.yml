@@ -10,28 +10,17 @@ on:
 
 jobs:    
   prod:
-    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'PROD' }}
-    env:
-      environment: PROD
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - name: Print value
-        run: echo ${{ env.environment }}
-  QA:
-    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'QA' }}
-    env:
-      environment: QA
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print value
-        run: echo ${{ env.environment }}
-        
-        
-  dev:
-    if: ${{ github.ref_name == 'master' || github.event.inputs.environment == 'DEV' }}
-    env:
-      environment: DEV
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print value
-        run: echo ${{ env.environment }}
+      - name: Create Build Info File
+        run: |
+          echo "Repository = ${ GITHUB_REPOSITORY }" >> build-info.txt
+          
+
+          echo "Commit SHA= ${ GITHUB_SHA }" >> build-info.txt
+
+          echo "Branch Name= ${ GITHUB_REF_NAME }" >> build-info.txt
+
+          Get-Content build-info.txt
+        shell:  bash   
+          
