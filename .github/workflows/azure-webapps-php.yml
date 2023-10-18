@@ -15,11 +15,10 @@ jobs:
       - name: Create Build Info File
         run: |
           echo "release_id=BBInforma_${{ github.run_id }}.zip" >> build-info.txt
+          echo "Commit SHA= ${{  GITHUB_REPOSITORY }}" >> build-info.txt
+          echo "Branch Name= ${{ GITHUB_SHA }}" >> build-info.txt
+          echo "Branch Name= ${{ GITHUB_RUN_NUMBER }}" >> build-info.txt
           
-
-          echo "Commit SHA= ${{ github.run_id }}" >> build-info.txt
-
-          echo "Branch Name= ${{ github.run_id }}" >> build-info.txt
 
           Get-Content build-info.txt
 
