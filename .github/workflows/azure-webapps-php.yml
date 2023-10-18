@@ -19,8 +19,7 @@ jobs:
           echo "Commit Id = ${{ GITHUB.SHA }}" >> build-info.txt
           echo "GITHUB RUN NUMBERe= ${{ GITHUB.RUN_NUMBER }}" >> build-info.txt
           echo "Branch Name= ${{ GITHUB.REF_NAME }}" >> build-info.txt
-
-
+          echo " Name= ${{ GITHUB_ACTOR }}" >> build-info.txt
           Get-Content build-info.txt
 
           
