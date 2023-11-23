@@ -13,6 +13,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Create Build Info File
+        if: ${{ github.event_name == 'workflow_dispatch' && contains(${{inputs.SOLUTION_FILE_PATH}}, '.publishproj' '.sln')) }}
         run: |
           echo "release_id=BBInforma_${{ github.run_id }}.zip" >> build-info.txt
           echo "Repo Name  Name= ${{ GITHUB.REPOSITORY }}" >> build-info.txt
