@@ -17,8 +17,8 @@ jobs:
           echo "staging"
           echo "selected-stage=staging" >> "$GITHUB_OUTPUT"
         else
-          echo "test"
-          echo "selected-stage=test" >> "$GITHUB_OUTPUT"
+          echo "dev"
+          echo "selected-stage=dev" >> "$GITHUB_OUTPUT"
         fi
   outputs:
     selected-stage: ${{ steps.select-environment.outputs.selected-environment }}
@@ -35,6 +35,6 @@ jobs:
       if: ${{ needs.determine-environment.outputs.selected-stage == 'staging' }}
       run: echo "Deploying to staging environment..."
     - name: Run Test
-      if: ${{ needs.determine-environment.outputs.selected-stage == 'test' }}
-      run: echo "Deploying to test environment..."    
+      if: ${{ needs.determine-environment.outputs.selected-stage == 'dev' }}
+      run: echo "Deploying to dev environment..."    
 
