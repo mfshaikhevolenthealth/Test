@@ -36,6 +36,8 @@ jobs:
         
   dev:
     if: ${{ github.ref_name == 'develop' || github.event.inputs.environment == 'DEV' }}
+    env:
+      environment: DEV
     runs-on: windows-latest
     steps:
       - name: Print value
