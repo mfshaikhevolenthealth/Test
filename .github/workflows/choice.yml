@@ -40,8 +40,17 @@ jobs:
       environment: DEV
     runs-on: windows-latest
     steps:
-      - name: Print value
-        run: env
+      - name: Set build version
+        shell: pwsh
+        run: |
+          $date = Get-Date -Format "MMddyy"
+          Write-Output "RELEASE_STRING=$date" >> $Env:GITHUB_ENV
+          Write-Output "RELEASE_STRING=$date" >> $Env:GITHUB_ENV
+          Write-Output "MAJOR=4" >> $Env:GITHUB_ENV
+          Write-Output "MINOR=$('$date'.Substring(0,4))" >> $Env:GITHUB_ENV
+          Write-Output "BUILD=$('$date'.Substring(4,2))" >> $Env:GITHUB_ENV
+          Write-Output "REVISION=${{ GITHUB.RUN_NUMBER }}" >> $Env:GITHUB_ENV
+          Write-Output "v${{ env.MAJOR }}.${{ env.MINOR }}${{ env.BUILD }}.${{ env.REVISION }}"
 
 
    
