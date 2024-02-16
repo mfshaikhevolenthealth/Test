@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print value
-        run: echo ${{ env.environment }}
+        run: env
         
         
   dev:
@@ -39,6 +39,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Print value
-        run: echo ${{ github.event.inputs.environment }}
+        run: env
+
 
    
