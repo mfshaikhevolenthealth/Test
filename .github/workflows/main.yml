@@ -1,1 +1,19 @@
+name: variable
 
+on:
+   workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: windows-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
+    steps:
+      - id: step1
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+
+  job2:
+    needs: job1
+    runs-on: windows-latest
+    steps:
+      - run: echo ${{needs.job1.outputs.output1}}
