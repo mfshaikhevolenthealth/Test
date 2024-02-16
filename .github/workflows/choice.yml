@@ -47,8 +47,8 @@ jobs:
           Write-Output "RELEASE_STRING=$date" >> $Env:GITHUB_ENV
           Write-Output "RELEASE_STRING=$date" >> $Env:GITHUB_ENV
           Write-Output "MAJOR=4" >> $Env:GITHUB_ENV
-          Write-Output "MINOR=$('$date'.Substring(0,4))" >> $Env:GITHUB_ENV
-          Write-Output "BUILD=$('$date'.Substring(4,2))" >> $Env:GITHUB_ENV
+          Write-Output "MINOR=$($date.Substring(0,4))" >> $Env:GITHUB_ENV
+          Write-Output "BUILD=$($date.Substring(4,2))" >> $Env:GITHUB_ENV
           Write-Output "REVISION=${{ GITHUB.RUN_NUMBER }}" >> $Env:GITHUB_ENV
           Write-Output "v${{ env.MAJOR }}.${{ env.MINOR }}${{ env.BUILD }}.${{ env.REVISION }}"
 
