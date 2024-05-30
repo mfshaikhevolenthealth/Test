@@ -19,13 +19,6 @@ jobs:
     steps:
       - name: Create Build Info File
         run: |
-          echo ${{ env.environment }}
-          echo "release_id=BBInforma_${{ github.run_id }}.zip" >> build-info.txt
-          echo "Repo Name  Name= ${{ GITHUB.REPOSITORY }}" >> build-info.txt
-          echo "Commit Id = ${{ GITHUB.SHA }}" >> build-info.txt
-          echo "GITHUB RUN NUMBERe= ${{ GITHUB.RUN_NUMBER }}" >> build-info.txt
-          echo "Branch Name= ${{ GITHUB.REF_NAME }}" >> build-info.txt
-          echo " GITHUB ACTOR Name= ${{ GITHUB.ACTOR }}" >> build-info.txt
           echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
           echo "Tag name from github.ref_name: ${{  github.ref_name }}"
 
