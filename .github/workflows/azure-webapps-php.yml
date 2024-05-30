@@ -15,7 +15,7 @@ on:
 
 jobs:    
   prod:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Create Build Info File
         run: |
