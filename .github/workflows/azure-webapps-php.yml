@@ -1,7 +1,12 @@
 name: Print environment variable
-
 on:
-   workflow_dispatch:
+  push:
+    branches:
+      - "!main"
+      - "!develop"
+    tags: 
+      - '*'
+  workflow_dispatch:
     inputs:
       environment:
         type: string
