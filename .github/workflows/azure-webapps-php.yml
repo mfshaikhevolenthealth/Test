@@ -11,5 +11,9 @@ jobs:
       shell: cmd
       run: |
         echo $chdir_path
+        echo $chdir_path1
+        
       env:
-        chdir_path: ${{env.GITHUB_WORKSPACE}}
+        chdir_path: "${{env.GITHUB_WORKSPACE}}"
+        chdir_path1: "${{chdir}}"
+        
