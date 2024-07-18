@@ -10,8 +10,7 @@ jobs:
       id: step_two
       shell: cmd
       run: |
-         echo " manikName1=${{env.GITHUB_WORKSPACE}}"
-         $manikName1
+        chdir
 
 
 
