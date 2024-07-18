@@ -9,7 +9,7 @@ jobs:
     - name: Set the value
       id: step_one
       run: |
-         chdir
+        chdir
         echo "action_state=yellow" >> $GITHUB_ENV
         echo "chdir_path=$(chdir)" >> "$GITHUB_OUTPUT"
 
