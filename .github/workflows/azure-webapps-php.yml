@@ -7,14 +7,15 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Set the value
+      shell: cmd
       id: step_one
       run: |
         chdir
-        echo "action_state=yellow" >> $GITHUB_ENV
-        echo "chdir_path=$(chdir)" >> "$GITHUB_OUTPUT"
+
 
     - name: Use the value
       id: step_two
+      shell: cmd
       run: |
         echo "${{ env.action_state }}" # This will output 'yellow'
         echo "${{ env.chdir_path }}" # This will output 'yellow'
