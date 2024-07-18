@@ -10,7 +10,9 @@ jobs:
       id: step_two
       shell: cmd
       run: |
-        chdir
+        FOR /F "tokens=* USEBACKQ" %%F IN (`chdir`) DO (SET var=%%F)
+        ECHO %var%
+        
 
 
 
