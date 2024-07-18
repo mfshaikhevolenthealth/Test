@@ -6,18 +6,10 @@ jobs:
   custom_GITHUB_ENV:
     runs-on: windows-latest
     steps:
-    - name: Set the value
-      shell: cmd
-      id: secret
-      run: |
-        chdir
-        echo "test=$(chdir)" >> "$GITHUB_OUTPUT" 
-        
-
     - name: Use the value
       id: step_two
       shell: cmd
       run: |
-        echo "${{ env.action_state }}" # This will output 'yellow'
-        echo "${{ env.chdir_path }}" # This will output 'yellow'
-        echo "${{steps.secret.outputs.test}}"
+        echo $chdir_path
+      env:
+        chdir_path: ${{env.GITHUB_WORKSPACE}}
