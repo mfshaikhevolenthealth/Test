@@ -10,8 +10,8 @@ jobs:
       id: step_two
       shell: cmd
       run: |
-         echo " GITHUB WORKFLOW  Name= ${{ GITHUB.WORKFLOW }}"
-         $GITHUB WORKFLOW
+         echo " manikName= ${{ GITHUB.WORKFLOW }}"
+         $manikName
 
 
         
