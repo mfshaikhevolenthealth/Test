@@ -19,3 +19,4 @@ jobs:
       run: |
         echo "${{ env.action_state }}" # This will output 'yellow'
         echo "${{ env.chdir_path }}" # This will output 'yellow'
+        echo ${{ env.environment }}
