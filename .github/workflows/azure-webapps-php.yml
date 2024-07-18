@@ -10,9 +10,10 @@ jobs:
       id: step_two
       shell: cmd
       run: |
-        echo $chdir_path
-        dir  
-      env:
-        chdir_path: "${{env.GITHUB_WORKSPACE}}"
+        chdir_path1=chdir
+         echo  ${{ GITHUB.REPOSITORY }}"
+         echo "${{ GITHUB.WORKFLOW }}"
+         echo "${{GITHUB_WORKSPACE }}"
+
 
         
