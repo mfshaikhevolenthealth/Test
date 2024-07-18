@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Set the value
-      shell: bash
+      shell: cmd
       id: step_one
       run: |
         chdir
