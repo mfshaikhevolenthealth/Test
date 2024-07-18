@@ -10,9 +10,8 @@ jobs:
       id: step_two
       shell: cmd
       run: |
-         echo  ${{ GITHUB.REPOSITORY }}"
-         echo "${{ GITHUB.WORKFLOW }}"
-         echo "${{GITHUB_WORKSPACE }}"
+         echo " GITHUB WORKFLOW  Name= ${{ GITHUB.WORKFLOW }}"
+         $GITHUB WORKFLOW
 
 
         
