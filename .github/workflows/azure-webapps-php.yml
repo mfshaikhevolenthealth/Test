@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Create Build Info File
         run: |
-          echo $Env:GITHUB_ENV
+          echo GITHUB_ENV
 
 
           
