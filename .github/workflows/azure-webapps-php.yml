@@ -1,25 +1,20 @@
-name: Print environment variable
-on:
-  push:
-    branches:
-      - "!main"
-      - "!develop"
-    tags: 
-      - '*'
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: string
-        default: DEV
-        required: true
+name: 'custom GITHUB_ENV var Demo'
 
-jobs:    
-  prod:
-    runs-on: ubuntu-latest
+on:  workflow_dispatch
+
+jobs:
+  custom_GITHUB_ENV:
+    runs-on: windows-latest
     steps:
-      - name: Create Build Info File
-        run: |
-          echo $env
+    - name: Set the value
+      id: step_one
+      run: |
+         chdir
+        echo "action_state=yellow" >> $GITHUB_ENV
+        echo "chdir_path=$(chdir)" >> "$GITHUB_OUTPUT"
 
-
-          
+    - name: Use the value
+      id: step_two
+      run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+        echo "${{ env.chdir_path }}" # This will output 'yellow'
