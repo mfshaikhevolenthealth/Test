@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Set the value
       shell: cmd
-      id: step_one
+      id: secret
       run: |
         chdir
         echo "test=$(chdir)" >> "$GITHUB_OUTPUT" 
