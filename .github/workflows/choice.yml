@@ -51,6 +51,12 @@ jobs:
           Write-Output "BUILD=$($date.Substring(4,2))" >> $Env:GITHUB_ENV
           Write-Output "REVISION=${{ GITHUB.RUN_NUMBER }}" >> $Env:GITHUB_ENV
           Write-Output "v${{ env.MAJOR }}.${{ env.MINOR }}${{ env.BUILD }}.${{ env.REVISION }}"
+          
+      - name: Set build version
+        shell: pwsh
+        run: |
+          env
+   
 
 
    
