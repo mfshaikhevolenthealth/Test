@@ -43,7 +43,7 @@ jobs:
       - name: Set build version
         shell: pwsh
         run: |
-          $date = Get-Date -Format "MMddyy"
+          env
           Write-Output "RELEASE_STRING=$date" >> $Env:GITHUB_ENV
           Write-Output "RELEASE_STRING=$date" >> $Env:GITHUB_ENV
           Write-Output "MAJOR=4" >> $Env:GITHUB_ENV
