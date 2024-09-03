@@ -38,4 +38,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Print value
-        run: echo ${{ env.environment }}
+        run: env
